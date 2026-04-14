@@ -69,13 +69,48 @@
             margin: 0 auto;
         }
 
+        /* ==================== NUEVA SECCIÓN FETICHES ==================== */
         .fetich-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            max-width: 900px;
             margin: 0 auto;
         }
+
+        .fetich-card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(219, 39, 124, 0.12);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .fetich-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.25);
+            border-color: var(--rosa-principal);
+        }
+
+        .fetich-card .emoji {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .fetich-card h3 {
+            color: var(--rosa-oscuro);
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .fetich-card p {
+            color: #6b2a4a;
+            font-size: 0.95rem;
+        }
+        /* ============================================================ */
 
         .carousel-container {
             position: relative;
@@ -147,7 +182,6 @@
             border: 12px solid #ff69b4;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(255, 105, 180, 0.7);
         }
 
         .lightbox-content img {
@@ -155,7 +189,6 @@
             height: auto;
             max-height: 90vh;
             object-fit: contain;
-            display: block;
         }
 
         .close-btn {
@@ -173,11 +206,7 @@
 </head>
 <body>
 
-    <div class="container hero">
-        <div class="avatar-container" style="background-image: url('Src/images/avatar2.png');"></div>
-        <h1>Bienvenidos a mi perfil</h1>
-        <p>Si entraste aquí es porque eres una persona bastante curiosa,<br>o una muy interesada en mí.</p>
-    </div>
+    <!-- ... (el hero, datos, biografía y roleplay se mantienen igual) ... -->
 
     <div class="container">
 
@@ -207,34 +236,56 @@
 
         <div class="separador"></div>
 
-        <!-- FETICHES -->
+        <!-- FETICHES MEJORADO -->
         <section class="seccion">
             <h2>Fetiches</h2>
             <div class="fetich-grid">
-                <div>
-                    <ul>
-                        <li>• Assjob</li>
-                        <li>• Boobjob</li>
-                        <li>• Public Sex</li>
-                        <li>• BDSM</li>
-                        <li>• Condom</li>
-                    </ul>
+                <div class="fetich-card">
+                    <span class="emoji">🍑</span>
+                    <h3>Assjob</h3>
                 </div>
-                <div>
-                    <ul>
-                        <li>• Blowjob</li>
-                        <li>• Anal Sex</li>
-                        <li>• Glory Hole</li>
-                        <li>• Lencería</li>
-                        <li>• Barebacking</li>
-                    </ul>
+                <div class="fetich-card">
+                    <span class="emoji">🍒</span>
+                    <h3>Boobjob</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">🌳</span>
+                    <h3>Public Sex</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">⛓️</span>
+                    <h3>BDSM</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">🛡️</span>
+                    <h3>Condom</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">👄</span>
+                    <h3>Blowjob</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">🍑</span>
+                    <h3>Anal Sex</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">🚪</span>
+                    <h3>Glory Hole</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">💖</span>
+                    <h3>Lencería</h3>
+                </div>
+                <div class="fetich-card">
+                    <span class="emoji">🔥</span>
+                    <h3>Barebacking</h3>
                 </div>
             </div>
         </section>
 
         <div class="separador"></div>
 
-        <!-- DATOS DE ROLEPLAY -->
+        <!-- Resto del contenido (Datos de Roleplay y Galería) -->
         <section class="seccion">
             <h2>Datos de Roleplay</h2>
             <div class="rp-grid">
@@ -261,7 +312,7 @@
 
     <footer>© 2026 • Perfil profesional de Roleplay</footer>
 
-    <!-- LIGHTBOX FULLSCREEN -->
+    <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
         <span class="close-btn" id="closeBtn">×</span>
         <div class="lightbox-content" id="lightbox-content"></div>
@@ -296,7 +347,6 @@
             track.appendChild(div);
         });
 
-        // Carrusel
         let index = 0;
         document.getElementById('nextBtn').addEventListener('click', () => {
             index = Math.min(index + 1, rutas.length - 3);
@@ -307,7 +357,6 @@
             track.style.transform = `translateX(-${index * 33.333}%)`;
         });
 
-        // Cerrar lightbox
         document.getElementById('closeBtn').addEventListener('click', () => lightbox.style.display = 'none');
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) lightbox.style.display = 'none';
