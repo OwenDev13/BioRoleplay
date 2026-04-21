@@ -4,199 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> LeOwen | Perfil RP</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-
-        :root {
-            --rosa-principal: #ff69b4;
-            --rosa-oscuro: #db277c;
-            --card-bg: #fff0f5;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f9e8f5, #e8d4ff, #ffd1e8);
-            background-size: 400% 400%;
-            animation: gradient 25s ease infinite;
-            color: #4a0e2a;
-            min-height: 100vh;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        .hero { text-align: center; padding: 50px 20px 40px; }
-        .avatar-container {
-            width: 260px; height: 260px; margin: 0 auto 25px;
-            border: 10px solid #ff69b4; border-radius: 50%;
-            background-size: cover; background-position: center;
-            box-shadow: 0 0 0 15px rgba(255,105,180,0.2);
-        }
-
-        h1, h2 { font-family: 'Space Grotesk', sans-serif; color: var(--rosa-oscuro); }
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2rem; text-align: center; margin: 40px 0 30px; }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(219,39,124,0.15);
-        }
-
-        .grid-datos, .rp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .valor { font-size: 2.3rem; font-weight: 700; color: var(--rosa-principal); }
-        .etiqueta { text-transform: uppercase; font-size: 0.9rem; margin-top: 8px; }
-
-        .biografia {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 24px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* SECCIÓN FETICHES MEJORADA (sin emojis) */
-        .fetich-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .fetich-card {
-            background: white;
-            border-radius: 18px;
-            padding: 22px 18px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(219, 39, 124, 0.12);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .fetich-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.25);
-            border-color: var(--rosa-principal);
-        }
-
-        .fetich-card h3 {
-            color: var(--rosa-oscuro);
-            font-size: 1.3rem;
-            margin: 0;
-        }
-        /* ================================================ */
-
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        .carousel-track {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.6s ease;
-        }
-        .gallery-card {
-            min-width: calc(33.333% - 14px);
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-        .image-frame {
-            height: 380px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px;
-            border: 6px solid #ff69b4;
-            transition: transform 0.3s ease;
-        }
-        .gallery-card:hover .image-frame {
-            transform: scale(1.03);
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 55px;
-            height: 55px;
-            background: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-
-        .separador {
-            height: 3px;
-            background: repeating-linear-gradient(90deg, #ff69b4 0, #ff69b4 10px, transparent 10px, transparent 20px);
-            margin: 50px 0;
-            opacity: 0.6;
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .lightbox-content {
-            max-width: 95%;
-            max-height: 95vh;
-            border: 12px solid #ff69b4;
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .lightbox-content img {
-            width: 100%;
-            height: auto;
-            max-height: 90vh;
-            object-fit: contain;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            font-size: 45px;
-            color: #fff;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        footer { text-align: center; padding: 40px; color: #6b2a4a; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container hero">
-        <div class="avatar-container" style="background-image: url('Src/images/avatar2.png');"></div>
+        <div class="avatar-container" style="background-image: url('/Src/images/avatar2.png');"></div>
         <h1>Bienvenidos a mi perfil</h1>
         <p>Si entraste aquí es porque eres una persona bastante curiosa,<br>o una muy interesada en mí.</p>
     </div>
@@ -229,20 +42,28 @@
 
         <div class="separador"></div>
 
-        <!-- FETICHES (sin emojis) -->
+        <!-- FETICHES -->
         <section class="seccion">
             <h2>Fetiches</h2>
             <div class="fetich-grid">
-                <div class="fetich-card"><h3>Assjob</h3></div>
-                <div class="fetich-card"><h3>Boobjob</h3></div>
-                <div class="fetich-card"><h3>Public Sex</h3></div>
-                <div class="fetich-card"><h3>BDSM</h3></div>
-                <div class="fetich-card"><h3>Condom</h3></div>
-                <div class="fetich-card"><h3>Blowjob</h3></div>
-                <div class="fetich-card"><h3>Anal Sex</h3></div>
-                <div class="fetich-card"><h3>Glory Hole</h3></div>
-                <div class="fetich-card"><h3>Lencería</h3></div>
-                <div class="fetich-card"><h3>Barebacking</h3></div>
+                <div>
+                    <ul>
+                        <li>• Assjob</li>
+                        <li>• Boobjob</li>
+                        <li>• Public Sex</li>
+                        <li>• BDSM</li>
+                        <li>• Condom</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>• Blowjob</li>
+                        <li>• Anal Sex</li>
+                        <li>• Glory Hole</li>
+                        <li>• Lencería</li>
+                        <li>• Barebacking</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -264,18 +85,22 @@
         <!-- GALERÍA -->
         <section class="seccion">
             <h2>Galería</h2>
-            <div class="carousel-container">
-                <button class="carousel-btn prev" id="prevBtn">←</button>
-                <div class="carousel-track" id="track"></div>
-                <button class="carousel-btn next" id="nextBtn">→</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" id="prevBtn">←</button>
+                    <div class="carousel-track" id="track"></div>
+                    <button class="carousel-btn next" id="nextBtn">→</button>
+                </div>
             </div>
         </section>
+
+        <div class="separador"></div>
 
     </div>
 
     <footer>© 2026 • Perfil profesional de Roleplay</footer>
 
-    <!-- LIGHTBOX -->
+    <!-- LIGHTBOX FULLSCREEN -->
     <div class="lightbox" id="lightbox">
         <span class="close-btn" id="closeBtn">×</span>
         <div class="lightbox-content" id="lightbox-content"></div>
@@ -283,43 +108,84 @@
 
     <script>
         const rutas = [
-            "Src/images/1.jpg","Src/images/2.jpg","Src/images/3.jpg","Src/images/4.jpg","Src/images/5.jpg",
-            "Src/images/6.jpg","Src/images/7.jpg","Src/images/8.jpg","Src/images/9.jpg","Src/images/10.jpg",
-            "Src/images/11.jpg","Src/images/12.jpg","Src/images/13.jpg","Src/images/14.jpg","Src/images/15.jpg",
-            "Src/images/16.jpg","Src/images/17.jpg","Src/images/18.jpg","Src/images/19.jpg","Src/images/20.jpg",
-            "Src/images/21.jpg","Src/images/22.jpg","Src/images/23.jpg","Src/images/24.jpg","Src/images/25.jpg",
-            "Src/images/26.jpg","Src/images/27.jpg","Src/images/28.jpg","Src/images/29.jpg","Src/images/30.jpg",
-            "Src/images/31.jpg","Src/images/32.jpg","Src/images/33.jpg","Src/images/34.jpg",
-            "Src/images/35.jpg","Src/images/36.jpg","Src/images/37.jpg"
+            "/Src/images/1.jpg","/Src/images/2.jpg","/Src/images/3.jpg","/Src/images/4.jpg","/Src/images/5.jpg",
+            "/Src/images/6.jpg","/Src/images/7.jpg","/Src/images/8.jpg","/Src/images/9.jpg","/Src/images/10.jpg",
+            "/Src/images/11.jpg","/Src/images/12.jpg","/Src/images/13.jpg","/Src/images/14.jpg","/Src/images/15.jpg",
+            "/Src/images/16.jpg","/Src/images/17.jpg","/Src/images/18.jpg","/Src/images/19.jpg","/Src/images/20.jpg",
+            "/Src/images/21.jpg","/Src/images/22.jpg","/Src/images/23.jpg","/Src/images/24.jpg","/Src/images/25.jpg",
+            "/Src/images/26.jpg","/Src/images/27.jpg","/Src/images/28.jpg","/Src/images/29.jpg","/Src/images/30.jpg",
+            "/Src/images/31.jpg","/Src/images/32.jpg","/Src/images/33.jpg","/Src/images/34.jpg",
+            "/Src/images/35.jpg","/Src/images/36.jpg","/Src/images/37.jpg"
         ];
 
         const track = document.getElementById('track');
         const lightbox = document.getElementById('lightbox');
         const lightboxContent = document.getElementById('lightbox-content');
 
-        rutas.forEach(ruta => {
+        // Carrusel infinito: clonamos 3 al inicio y 3 al final como "fantasmas"
+        const VISIBLE = 3;
+        const total = rutas.length;
+
+        // Construimos lista extendida: [últimas 3] + [todas] + [primeras 3]
+        const extendida = [
+            ...rutas.slice(-VISIBLE),
+            ...rutas,
+            ...rutas.slice(0, VISIBLE)
+        ];
+
+        extendida.forEach((ruta, i) => {
             const div = document.createElement('div');
             div.className = 'gallery-card';
             div.innerHTML = `<div class="image-frame" style="background-image: url('${ruta}')"></div>`;
-            
+
+            // Solo las cartas reales (no los clones) abren el lightbox
+            const rutaReal = rutas[((i - VISIBLE) % total + total) % total];
             div.addEventListener('click', () => {
-                lightboxContent.innerHTML = `<img src="${ruta}" alt="Imagen ampliada">`;
+                lightboxContent.innerHTML = `<img src="${rutaReal}" alt="Imagen ampliada">`;
                 lightbox.style.display = 'flex';
             });
-            
+
             track.appendChild(div);
         });
 
-        let index = 0;
+        // Empezamos en la posición VISIBLE para mostrar las imágenes reales
+        let index = VISIBLE;
+        const cardWidth = 100 / VISIBLE; // 33.333%
+
+        function moverA(pos, animado = true) {
+            track.style.transition = animado ? 'transform 0.6s ease' : 'none';
+            track.style.transform = `translateX(-${pos * cardWidth}%)`;
+        }
+
+        moverA(index, false);
+
         document.getElementById('nextBtn').addEventListener('click', () => {
-            index = Math.min(index + 1, rutas.length - 3);
-            track.style.transform = `translateX(-${index * 33.333}%)`;
-        });
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            index = Math.max(index - 1, 0);
-            track.style.transform = `translateX(-${index * 33.333}%)`;
+            index++;
+            moverA(index);
+
+            // Si llegamos al bloque fantasma del final, saltamos al inicio real
+            if (index >= total + VISIBLE) {
+                setTimeout(() => {
+                    index = VISIBLE;
+                    moverA(index, false);
+                }, 620);
+            }
         });
 
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            index--;
+            moverA(index);
+
+            // Si llegamos al bloque fantasma del inicio, saltamos al final real
+            if (index < VISIBLE) {
+                setTimeout(() => {
+                    index = total + VISIBLE - 1;
+                    moverA(index, false);
+                }, 620);
+            }
+        });
+
+        // Cerrar fullscreen
         document.getElementById('closeBtn').addEventListener('click', () => lightbox.style.display = 'none');
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) lightbox.style.display = 'none';
